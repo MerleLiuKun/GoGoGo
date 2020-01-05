@@ -82,4 +82,38 @@ function longestCommonPrefix($strs)
     return $prefix;
 }
 
+//判断是否是有效的括号
+function isValid($s) {
+    $arr = array();
+    for($i=0;$i<strlen($s);$i++)
+    {
+        if($s[$i] == '(' || $s[$i] == '[' || $s[$i] == '{'){
+            $arr[$i] = $s[$i];
+        }
+        else{
+            if(count($arr) == 0){
+                return false;
+            }
+            if($arr[count($arr)-1] == '(' && $s[$i] !=')')
+            {
+                return false;
+            }
+
+            if($arr[count($arr)-1] == '[' && $s[$i] !=']')
+            {
+                return false;
+            }
+            if($arr[count($arr)-1] == '{' && $s[$i] !='}')
+            {
+                return false;
+            }
+            unset($arr[count($arr)-1]);
+        }
+    }
+    if(empty($arr))
+    {
+        return true;
+    }
+}
+
 
