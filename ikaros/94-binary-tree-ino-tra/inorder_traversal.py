@@ -29,7 +29,6 @@ class Solution:
         res = []
         current = root
 
-        # 如果如果
         while current or stack:
             while current is not None:
                 stack.append(current)
@@ -40,6 +39,30 @@ class Solution:
                 res.append(current.val)
                 current = current.right
         
+        return res
+    
+    def inorderTraversalMorris(self, root: TreeNode) -> List[int]:
+        res = []
+        current = root
+        pre = None
+
+        while current:
+            if current.left is None:
+                # 如果没有左子树, 就把当前节点添加到输出.
+                res.append(current.val)
+                current = current.right  # 切换到右子树
+            else:
+                # 如果存在左子树，需要处理
+                pre = current.left
+                # 找到最右的子节点 用于承载 当前节点
+                while pre.right is not None:
+                    pre = pre.right
+                pre.right = current
+                tmp = current
+                current = current.left
+                # 将当前节点的左子树置空
+                tmp.left = None
+
         return res
 
 
@@ -53,3 +76,4 @@ if __name__ == "__main__":
     r = [1,3,2]
     print(r==s.inorderTraversal(root))
     print(r==s.inorderTraversalIter(root))
+    print(r==s.inorderTraversalMorris(root))
