@@ -7,14 +7,22 @@ by lgy 2020/10/10
 package mySqrt_x
 /*
 //顺序查找，定位平方根，此法略叼
-func mySqrt_x(x int) int {
-	for i :=0; i<x; i++{
-		if i*i >x{
+func mySqrt(x int) int {
+    if x == 0 {
+        return 0
+    }
+    if x<3 {
+        return 1
+
+    }
+	for i:=0; i<x; i++ {
+		if i*i > x {
 			return i-1
 		}
 	}
-	return 
+	return x
 }
+
 */
 
 //二分查找，定位平方根
