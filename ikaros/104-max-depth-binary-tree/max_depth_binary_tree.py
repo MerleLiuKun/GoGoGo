@@ -2,12 +2,14 @@
     递归求得二叉树的深度
 """
 
+
 # Definition for a binary tree node.
 class TreeNode:
     def __init__(self, x):
         self.val = x
         self.left = None
         self.right = None
+
 
 class Solution:
     def __init__(self):
@@ -22,15 +24,14 @@ class Solution:
             return
         if root.left is None and root.right is None:
             self.answer = max(self.answer, depth)
-        
+
         self.loop_depth(root.left, depth + 1)
         self.loop_depth(root.right, depth + 1)
-    
+
     def max_depth_simple(self, root: TreeNode) -> int:
         if root is None:
             return 0
         return max(self.max_depth_simple(root.left), self.max_depth_simple(root.right)) + 1
-
 
 
 if __name__ == "__main__":
