@@ -1,5 +1,5 @@
 class Solution:
-    def lengthOfLongestSubstring(self, s: str) -> int:
+    def method1(self, s: str) -> int:
 
         max_length = 0
         cur_length = 0
