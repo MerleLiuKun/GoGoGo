@@ -49,7 +49,9 @@ class Twitter:
         """
         Follower unfollows a followee. If the operation is invalid, it should be a no-op.
         """
-        self.follows_data.get(followerId, set([followerId])).remove(followeeId)
+        follows_data = self.follows_data.get(followerId)
+        if follows_data is not None and followeeId in follows_data:
+            follows_data.remove(followeeId)
         
 
 
