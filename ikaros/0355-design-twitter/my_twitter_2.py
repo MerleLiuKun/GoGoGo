@@ -64,5 +64,4 @@ class Twitter:
         """
         if followerId == followeeId:
             return True
-        self.users.setdefault(followerId, User()).follows.discard(followeeId)
-        
+        self.users.setdefault(followerId, User()).follows.discard(followeeId)   
