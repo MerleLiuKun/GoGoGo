@@ -26,4 +26,27 @@ class Solution:
             root = item
         
         return root
+    
+    def addTwoNumbers2(self, l1: ListNode, l2: ListNode) -> ListNode:
+        head = ListNode(0)
+
+        root = head
+        carry = 0
         
+        while l1 or l2 or carry:
+            l1_num = 0
+            if l1:
+                l1_num = l1.val
+                l1 = l1.next
+            l2_num = 0
+            if l2:
+                l2_num = l2.val
+                l2 = l2.next
+            
+            num = carry + l1_num + l2_num
+            carry = num // 10
+            num = num % 10
+            
+            root.next = ListNode(num)
+            root = root.next
+        return head.next
