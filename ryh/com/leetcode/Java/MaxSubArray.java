@@ -31,4 +31,29 @@ public class MaxSubArray {
         }
         return maxResult;
     }
+    //时间复杂度太高
+    public int maxSubArray2(int[] nums) {
+        if (nums.length == 1) {
+            return nums[0];
+        }
+        int maxResult = nums[0];
+        for (int i = 0; i < nums.length; i++) {
+            int max = nums[i];//最大连续之和
+
+            for (int j = i + 1; j < nums.length; j++) {
+                int sum = 0;//前n项和
+                for (int k = i; k <= j; k++) {
+                    sum += nums[k];
+                }
+                if (sum > max) {
+                    max = sum;
+                } else {//继续
+                    continue;
+                }
+            }
+            maxResult = Math.max(maxResult, max);
+        }
+        return maxResult;
+    
+    }
 }
