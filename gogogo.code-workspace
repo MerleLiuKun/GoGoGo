@@ -1,0 +1,15 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"php.suggest.basic": false,
+		"php.validate.enable": false,
+		"npm.autoDetect": "off",
+		"simpleBrowser.focusLockIndicator.enabled": false,
+		"editor.fontFamily": "'Operator Mono Book', 'Source Code Pro'",
+		"editor.fontSize": 16,
+	}
+}
