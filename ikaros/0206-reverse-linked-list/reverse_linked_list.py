@@ -1,4 +1,7 @@
 # Definition for singly-linked list.
+from os import curdir
+
+
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
@@ -21,20 +24,14 @@ class Solution:
         return t_head
 
     def reverseList_2(self, head: ListNode) -> ListNode:
-        if not head:
-            return None
-
-        p1 = None
-        p2 = head.next
-
-        while head:
-            p1
-            if t_head:
-                node.next = t_head
-            t_head = node
-            head = head.next
-
-        return t_head
+        # 核心逻辑如下，多注意 赋值的转换
+        prev, cur = None, head
+        while cur:
+            t = cur.next
+            cur.next = prev
+            prev = cur
+            cur = t
+        return prev
 
 
 if __name__ == '__main__':
